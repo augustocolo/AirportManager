@@ -50,7 +50,7 @@ int main() {
     printf("AIRPORT MANAGER v2.0 by Augusto Colongo\nType the airport that you'd like to use: ");
     gets(filename);
     strcat(filename,".dat");
-    if ((importAirportFile(filename))==1){
+    if (importAirportFile(filename)==1){
         printf("ERROR WHILE IMPORTING AIRPORT & NODES FILE");
         return 1;
     }

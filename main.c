@@ -67,6 +67,7 @@ int main() {
 int importAirportFile(char name){
     //opening airport file
     int nair=0;
+    // test
     FILE *fp_airportinfo;
     if((fp_airportinfo=fopen(name, "r"))==NULL) {
         return 1;

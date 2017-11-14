@@ -12,6 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c8210c8-c7a5-4fa6-9376-67d7056f9121" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LIMFairport.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LIMFtraffic.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PlaneDB.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.c" afterPath="$PROJECT_DIR$/main.c" />
     </list>
@@ -28,15 +31,17 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-59">
-              <caret line="120" column="8" lean-forward="false" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+            <state relative-caret-position="432">
+              <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#202#365#0" expanded="false" />
                 <element signature="e#431#518#0" expanded="false" />
-                <element signature="e#658#718#0" expanded="false" />
-                <element signature="e#854#1178#0" expanded="false" />
-                <element signature="e#5174#5296#0" expanded="false" />
+                <element signature="e#659#719#0" expanded="false" />
+                <element signature="e#855#1179#0" expanded="false" />
+                <element signature="e#2069#3796#0" expanded="false" />
+                <element signature="e#4156#4278#0" expanded="false" />
+                <element signature="e#4280#5350#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -45,7 +50,7 @@
       <file leaf-file-name="string.h" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/string.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="924">
               <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
               <folding />
             </state>
@@ -55,8 +60,8 @@
       <file leaf-file-name="stdio.h" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/stdio.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="168" column="38" lean-forward="false" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+            <state relative-caret-position="7266">
+              <caret line="346" column="36" lean-forward="false" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -84,6 +89,37 @@
     <option name="x" value="-8" />
     <option name="width" value="1161" />
     <option name="height" value="1038" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>C/C++</id>
+          </State>
+          <State>
+            <id>Declaration orderC/C++</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Type checksC/C++</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>FunctionImplicitDeclarationInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -115,9 +151,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\augux\CLionProjects\AirportManager" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -131,7 +172,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Build All">
+  <component name="RunManager" selected="Application.AirportManager">
     <configuration name="AirportManager" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AirportManager" TARGET_NAME="AirportManager" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AirportManager" RUN_TARGET_NAME="AirportManager">
       <envs />
     </configuration>
@@ -146,6 +187,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0c8210c8-c7a5-4fa6-9376-67d7056f9121" name="Default" comment="" />
@@ -159,7 +203,10 @@
       <workItem from="1510583356247" duration="5000" />
       <workItem from="1510588338869" duration="1507000" />
       <workItem from="1510665696931" duration="8434000" />
-      <workItem from="1510685115865" duration="2267000" />
+      <workItem from="1510685115865" duration="2305000" />
+      <workItem from="1510696691923" duration="2460000" />
+      <workItem from="1510699177794" duration="430000" />
+      <workItem from="1510699730541" duration="800000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1510583183787</created>
@@ -189,11 +236,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510674421812</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed some build errors">
+      <created>1510689001091</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1510689001094</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15396000" />
+    <option name="totallyTimeSpent" value="19124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -201,11 +255,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25208333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32781458" sideWeight="0.48802084" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32781458" sideWeight="0.48177084" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32781458" sideWeight="0.51197916" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32781458" sideWeight="0.5182292" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.4875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -231,7 +285,8 @@
     <MESSAGE value="First change" />
     <MESSAGE value="defined Maxlen of array&#10;modified typedefs and structs&#10;worked on importAirportFile&#10;outlined importTrafficDB" />
     <MESSAGE value="worked on importTrafficDB and importPlaneDB&#10;added calcMonoTime" />
-    <option name="LAST_COMMIT_MESSAGE" value="worked on importTrafficDB and importPlaneDB&#10;added calcMonoTime" />
+    <MESSAGE value="fixed some build errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some build errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -248,9 +303,110 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7266">
+          <caret line="346" column="36" lean-forward="false" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#202#365#0" expanded="false" />
+            <element signature="e#431#518#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7266">
+          <caret line="346" column="36" lean-forward="false" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#202#365#0" expanded="false" />
+            <element signature="e#431#518#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3528">
+          <caret line="168" column="38" lean-forward="false" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#202#365#0" expanded="false" />
+            <element signature="e#431#518#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -263,9 +419,11 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -278,9 +436,11 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -293,9 +453,11 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -315,9 +477,11 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -337,9 +501,11 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -348,36 +514,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/stdio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="168" column="38" lean-forward="false" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/string.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="924">
           <caret line="44" column="40" lean-forward="false" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/CodeBlocks/MinGW/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7266">
+          <caret line="346" column="36" lean-forward="false" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59">
-          <caret line="120" column="8" lean-forward="false" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+        <state relative-caret-position="432">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#202#365#0" expanded="false" />
             <element signature="e#431#518#0" expanded="false" />
-            <element signature="e#658#718#0" expanded="false" />
-            <element signature="e#854#1178#0" expanded="false" />
-            <element signature="e#5174#5296#0" expanded="false" />
+            <element signature="e#659#719#0" expanded="false" />
+            <element signature="e#855#1179#0" expanded="false" />
+            <element signature="e#2069#3796#0" expanded="false" />
+            <element signature="e#4156#4278#0" expanded="false" />
+            <element signature="e#4280#5350#0" expanded="false" />
           </folding>
         </state>
       </provider>

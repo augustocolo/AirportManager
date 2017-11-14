@@ -27,7 +27,7 @@ typedef struct nI{
     char adjlist [4] [2 + 1];
 }nodesInfo;
 nodesInfo node[MAXLENGTHOFARRAY];
-int importAirportFile(char);
+int importAirportFile(char*);
 
 //Planes Database Variables&Types&Functions
 int npldb=0;
@@ -57,27 +57,27 @@ typedef struct tDb{
     char airport [3 + 1];
 }trafficDatabase;
 trafficDatabase traffic[MAXLENGTHOFARRAY];
-int importTrafficDatabase (char);
+int importTrafficDatabase (char *);
 
 int calcMonoTime(int, int, int);
 
 int main() {
-    char filename[16];
-    if (importPlaneDatabase()!=0){
+    char filename[64];
+    if (importPlaneDatabase() != 0) {
         printf("ERROR WHILE IMPORTING PLANES DATABASE");
         return 1;
     }
     printf("AIRPORT MANAGER v2.0 by Augusto Colongo\nType the airport that you'd like to use: ");
     gets(filename);
-    strcat(filename,".dat");
-    if (importAirportFile((* filename) != 0)){
+    strcat(filename, "airport.dat");
+    if (importAirportFile(filename) != 0) {
         printf("ERROR WHILE IMPORTING AIRPORT & NODES FILE");
         return 1;
     }
     printf("Now type the traffic database that you'd like to use: ");
     gets(filename);
-    strcat(filename,".dat");
-    if (importTrafficDatabase(* filename)!=0){
+    strcat(filename, "traffic.dat");
+    if (importTrafficDatabase(filename) != 0) {
         printf("ERROR WHILE IMPORTING TRAFFIC DATABASE");
         return 1;
     }
@@ -88,51 +88,15 @@ int main() {
     return 0;
 }
 
-int importAirportFile(char name){
-    //opening airport file
-    int i=0;
-    // test
-    FILE *fp_airportinfo;
-    if((fp_airportinfo=(fopen(name, "r")) == NULL)) {
-        return 1;
-    }
-    fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\n", &nair);
-            //printf("%d gates\n",nair);
-    for (i=0;i<nair;i++){
-        scanf(fp_airportinfo,"%c\t%d\t%s\t%s\t%s\t%s\t%s\n",
-              gate[i].type,
-              &gate[i].number,
-              gate[i].accType[0],
-              gate[i].accType[1],
-              gate[i].accType[2],
-              gate[i].nodeEnter,
-              gate[i].nodeExit);
-        strcpy(gate[i].assignedPlaneReg,"NULLNU");
-    }
-    fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\t\n", &nnod);
-    for (i=0;i<nnod;i++){
-        fscanf(fp_airportinfo,"%s\t%d\t%d\t%s\t%s\t%s\t%s\n",
-        node[i].name,
-        &node[i].x,
-        &node[i].y,
-        node[i].adjlist[0],
-        node[i].adjlist[1],
-        node[i].adjlist[2],
-        node[i].adjlist[3]);
-    }
-    fclose(fp_airportinfo);
-    return 0;
-}
-
-int importTrafficDatabase(char name){
+int importTrafficDatabase(char name [64]){
     int i=0, j=0;
     int planefound=false;
     FILE *fp_trafficinfo;
-    if((fp_trafficinfo=fopen((const char *) name, "r")) == NULL){
+    if((fp_trafficinfo=fopen(name, "r")) == NULL){
         return 1;
     }
     fscanf(fp_trafficinfo, "%d\t\t\t\t\n", &ntra);
-    for (i=0; i<ntra,i++) {
+    for (i=0; i<ntra;i++) {
         fscanf(fp_trafficinfo,"%d:%d:%d\t%c\t%s\t%s\t%s\t\n",
                &traffic[i].first_hh,
                &traffic[i].first_mm,
@@ -147,7 +111,7 @@ int importTrafficDatabase(char name){
                 traffic[i].plane_alreadyBeen++;
             }
         }
-        for (j=0;j<npldb && planefound==false,j++){
+        for (j=0;j<npldb && planefound==false;j++){
             if (strcmp(traffic[i].plane_model,plane[j].model)==0){
                 strcpy(traffic[i].plane_type,plane[j].type);
                 planefound=true;
@@ -188,4 +152,40 @@ int calcMonoTime(int hh, int mm, int ss){
     int monotime;
     monotime= (hh*100000)+(mm*1000)+ss;
     return monotime;
+}
+
+int importAirportFile(char name [64]) {
+    //opening airport file
+    int i=0;
+    // test
+    FILE *fp_airportinfo;
+    if((fp_airportinfo=fopen(name, "r")) == NULL){
+        return 1;
+    }
+    fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\n", &nair);
+    //printf("%d gates\n",nair);
+    for (i=0;i<nair;i++){
+        scanf(fp_airportinfo,"%c\t%d\t%s\t%s\t%s\t%s\t%s\n",
+              gate[i].type,
+              &gate[i].number,
+              gate[i].accType[0],
+              gate[i].accType[1],
+              gate[i].accType[2],
+              gate[i].nodeEnter,
+              gate[i].nodeExit);
+        strcpy(gate[i].assignedPlaneReg,"NULLNU");
+    }
+    fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\t\n", &nnod);
+    for (i=0;i<nnod;i++){
+        fscanf(fp_airportinfo,"%s\t%d\t%d\t%s\t%s\t%s\t%s\n",
+               node[i].name,
+               &node[i].x,
+               &node[i].y,
+               node[i].adjlist[0],
+               node[i].adjlist[1],
+               node[i].adjlist[2],
+               node[i].adjlist[3]);
+    }
+    fclose(fp_airportinfo);
+    return 0;
 }

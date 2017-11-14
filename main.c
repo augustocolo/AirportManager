@@ -70,14 +70,14 @@ int main() {
     printf("AIRPORT MANAGER v2.0 by Augusto Colongo\nType the airport that you'd like to use: ");
     gets(filename);
     strcat(filename,".dat");
-    if (importAirportFile(filename)!=0){
+    if (importAirportFile((* filename) != 0)){
         printf("ERROR WHILE IMPORTING AIRPORT & NODES FILE");
         return 1;
     }
     printf("Now type the traffic database that you'd like to use: ");
     gets(filename);
     strcat(filename,".dat");
-    if (importTrafficDatabase(filename)!=0){
+    if (importTrafficDatabase(* filename)!=0){
         printf("ERROR WHILE IMPORTING TRAFFIC DATABASE");
         return 1;
     }
@@ -93,32 +93,32 @@ int importAirportFile(char name){
     int i=0;
     // test
     FILE *fp_airportinfo;
-    if((fp_airportinfo=fopen((const char *) name, "r")) == NULL) {
+    if((fp_airportinfo=(fopen(name, "r")) == NULL)) {
         return 1;
     }
     fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\n", &nair);
             //printf("%d gates\n",nair);
     for (i=0;i<nair;i++){
         scanf(fp_airportinfo,"%c\t%d\t%s\t%s\t%s\t%s\t%s\n",
-              &gate[i].type,
+              gate[i].type,
               &gate[i].number,
-              &gate[i].accType[0],
-              &gate[i].accType[1],
-              &gate[i].accType[2],
-              &gate[i].nodeEnter,
-              &gate[i].nodeExit);
-        strcpy(&gate[i].assignedPlaneReg,"NULLNU");
+              gate[i].accType[0],
+              gate[i].accType[1],
+              gate[i].accType[2],
+              gate[i].nodeEnter,
+              gate[i].nodeExit);
+        strcpy(gate[i].assignedPlaneReg,"NULLNU");
     }
     fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\t\n", &nnod);
     for (i=0;i<nnod;i++){
-        fscanf(fp_airportinfo,"%s\t%d\t%d\t%s\t%s\t%s\t%s\n"),
-        &node[i].name,
+        fscanf(fp_airportinfo,"%s\t%d\t%d\t%s\t%s\t%s\t%s\n",
+        node[i].name,
         &node[i].x,
         &node[i].y,
-        &node[i].adjlist[0],
-        &node[i].adjlist[1],
-        &node[i].adjlist[2],
-        &node[i].adjlist[3]);
+        node[i].adjlist[0],
+        node[i].adjlist[1],
+        node[i].adjlist[2],
+        node[i].adjlist[3]);
     }
     fclose(fp_airportinfo);
     return 0;
@@ -132,7 +132,7 @@ int importTrafficDatabase(char name){
         return 1;
     }
     fscanf(fp_trafficinfo, "%d\t\t\t\t\n", &ntra);
-    for (i=0; i<ntra,i++){
+    for (i=0; i<ntra,i++) {
         fscanf(fp_trafficinfo,"%d:%d:%d\t%c\t%s\t%s\t%s\t\n",
                &traffic[i].first_hh,
                &traffic[i].first_mm,
@@ -173,7 +173,7 @@ int importPlaneDatabase (){
     int i=0;
     FILE *fp_planedatabase;
     if((fp_planedatabase=fopen("PlaneDB.dat","r"))==NULL){
-        return 1
+        return 1;
     }
     fscanf(fp_planedatabase, "%d\t\n", &npldb);
     for (i=0;i<npldb;i++){

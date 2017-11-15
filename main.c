@@ -59,9 +59,25 @@ typedef struct tDb{
 trafficDatabase traffic[MAXLENGTHOFARRAY];
 int importTrafficDatabase (char *);
 
+//Time Variables&Functions
 int calcMonoTime(int, int, int);
+void timeTicker();
+struct Timer {
+    int hh;
+    int mm;
+    int ss;
+}time;
+time.hh= 0;
+time.mm= 0;
+time.ss= 0;
+
+//Movements functions declarations
+int arrivalMovt();
+int departureMovt();
+int taxiMovt();
 
 int main() {
+    int i=0;
     char filename[64];
     if (importPlaneDatabase() != 0) {
         printf("ERROR WHILE IMPORTING PLANES DATABASE");
@@ -81,7 +97,41 @@ int main() {
         printf("ERROR WHILE IMPORTING TRAFFIC DATABASE");
         return 1;
     }
+    printf("Done importing, now let's start!\n");
     system("cls"); //is this working? IDK
+    while (time.hh!=24){
+        timeTicker();
+        for (i=0;i<ntra;i++){
+            if (time.hh == traffic[i].event_hh &&
+                    time.mm == traffic[i].event_mm &&
+                    time.ss == traffic[i].event_ss){
+               switch (traffic[i].event_action){
+                   case 'A':
+                       if (arrivalMovt()!=0){
+                           //add text
+                           return 1;
+                       };
+                       break;
+                   case 'D':
+                       if (departureMovt()!=0){
+                           //add text
+                           return 1;
+                       }
+                       break;
+                   case 'T':
+                       if (taxiMovt()!=0){
+                           //add text
+                           return 1;
+                       }
+                       break;
+                   default:
+                       printf("ERROR WHILE READING TRAFFIC ACTION");
+                       return 1;
+               }
+            }
+        }
+    }
+
 
 
 
@@ -166,7 +216,7 @@ int importAirportFile(char name [64]) {
     //printf("%d gates\n",nair);
     for (i=0;i<nair;i++){
         scanf(fp_airportinfo,"%c\t%d\t%s\t%s\t%s\t%s\t%s\n",
-              gate[i].type,
+              &gate[i].type,
               &gate[i].number,
               gate[i].accType[0],
               gate[i].accType[1],
@@ -189,3 +239,16 @@ int importAirportFile(char name [64]) {
     fclose(fp_airportinfo);
     return 0;
 }
+
+void timeTicker (){
+   time.ss++;
+    if (time.ss==60){
+        time.ss=0;
+        time.mm++;
+    }
+    if (time.mm==60) {
+        time.mm = 0;
+        time.hh++;
+    }
+}
+

@@ -56,6 +56,9 @@ typedef struct tDb{
     char plane_model[4 + 1];
     char plane_type[2 + 1];
     int plane_alreadyBeen;
+    char plane_currentPosition[2 + 1];
+    char plane_path[MAXLENGTHOFARRAY][2 + 1];
+    int plane_npath;
     char airport [3 + 1];
 }trafficDatabase;
 trafficDatabase traffic[MAXLENGTHOFARRAY];
@@ -64,19 +67,17 @@ int importTrafficDatabase (char *);
 //Time Variables&Functions
 int calcMonoTime(int, int, int);
 void timeTicker();
-struct Timer {
-    int hh;
-    int mm;
-    int ss;
-}time;
-/*time.hh= 0;
-time.mm= 0;
-time.ss= 0;*/
+int hh=0;
+int mm=0;
+int ss=0;
 
 //Movements functions declarations
 int arrivalMovt();
 int departureMovt();
 int taxiMovt();
+int enterExitNodeSelector();
+int pathfinder();
+
 
 int main() {
     char filename[64];
@@ -100,12 +101,12 @@ int main() {
     }
     printf("Done importing, now let's start!\n");
     system("cls"); //is this working? IDK
-    while (time.hh!=24){
+    while (hh!=24){
         timeTicker();
         for (imain=0;imain<ntra;imain++){
-            if (time.hh == traffic[imain].event_hh &&
-                    time.mm == traffic[imain].event_mm &&
-                    time.ss == traffic[imain].event_ss){
+            if (hh == traffic[imain].event_hh &&
+                    mm == traffic[imain].event_mm &&
+                    ss == traffic[imain].event_ss){
                switch (traffic[imain].event_action){
                    case 'A':
                        if (arrivalMovt()!=0){
@@ -199,9 +200,9 @@ int importPlaneDatabase (){
     fclose(fp_planedatabase);
 }
 
-int calcMonoTime(int hh, int mm, int ss){
+int calcMonoTime(int my_hh, int my_mm, int my_ss){
     int monotime;
-    monotime= (hh*100000)+(mm*1000)+ss;
+    monotime= (my_hh*100000)+(my_mm*1000)+my_ss;
     return monotime;
 }
 
@@ -242,14 +243,14 @@ int importAirportFile(char name [64]) {
 }
 
 void timeTicker (){
-   time.ss++;
-    if (time.ss==60){
-        time.ss=0;
-        time.mm++;
+   ss++;
+    if (ss==60){
+        ss=0;
+        mm++;
     }
-    if (time.mm==60) {
-        time.mm = 0;
-        time.hh++;
+    if (mm==60) {
+        mm = 0;
+        hh++;
     }
 }
 
@@ -263,6 +264,11 @@ int arrivalMovt(){
                 strcmp(gate[iair].accType[2],traffic[imain].plane_type)==0){
             strcpy(gate[iair].assignedPlaneReg,traffic[imain].plane_regNum);
             checkArr=true;
+            traffic[imain].event_action='T';
+            if (enterExitNodeSelector()!=0){
+                printf("Error in airport db");
+                return 1;
+            }
             //PATHFINDER
         } else if (iair==nair-1){
             return 1;
@@ -276,11 +282,20 @@ int departureMovt(){
     for (iair=0;iair<nair;iair++){
         if(strcmp(gate[iair].assignedPlaneReg,traffic[imain].plane_regNum)==0){
             strcpy(gate[iair].assignedPlaneReg,"NULLNU");
+            traffic[imain].event_action='T';
             //PATHFINDER
         } else if (iair==nair){
             return 1;
         }
     }
     return 0;
+}
+
+int taxiMovt(){
+    return 0;
+}
+
+int enterExitNodeSelector(){
+    char startnode[2];
 }
 

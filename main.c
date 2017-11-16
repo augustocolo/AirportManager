@@ -7,6 +7,8 @@
 #define false 0
 #define MAXLENGTHOFARRAY 2500
 
+int imain=0;
+
 // Airport Info Variables&Types&Functions
 int nair=0;
 typedef struct gI{
@@ -67,9 +69,9 @@ struct Timer {
     int mm;
     int ss;
 }time;
-time.hh= 0;
+/*time.hh= 0;
 time.mm= 0;
-time.ss= 0;
+time.ss= 0;*/
 
 //Movements functions declarations
 int arrivalMovt();
@@ -77,7 +79,6 @@ int departureMovt();
 int taxiMovt();
 
 int main() {
-    int i=0;
     char filename[64];
     if (importPlaneDatabase() != 0) {
         printf("ERROR WHILE IMPORTING PLANES DATABASE");
@@ -101,14 +102,14 @@ int main() {
     system("cls"); //is this working? IDK
     while (time.hh!=24){
         timeTicker();
-        for (i=0;i<ntra;i++){
-            if (time.hh == traffic[i].event_hh &&
-                    time.mm == traffic[i].event_mm &&
-                    time.ss == traffic[i].event_ss){
-               switch (traffic[i].event_action){
+        for (imain=0;imain<ntra;imain++){
+            if (time.hh == traffic[imain].event_hh &&
+                    time.mm == traffic[imain].event_mm &&
+                    time.ss == traffic[imain].event_ss){
+               switch (traffic[imain].event_action){
                    case 'A':
                        if (arrivalMovt()!=0){
-                           //add text
+                           printf("Plane %s could not be assigned to any gate\n", traffic[imain].plane_regNum);
                            return 1;
                        };
                        break;
@@ -215,7 +216,7 @@ int importAirportFile(char name [64]) {
     fscanf(fp_airportinfo, "%d\t\t\t\t\t\t\n", &nair);
     //printf("%d gates\n",nair);
     for (i=0;i<nair;i++){
-        scanf(fp_airportinfo,"%c\t%d\t%s\t%s\t%s\t%s\t%s\n",
+        scanf((const char *) fp_airportinfo, "%c\t%d\t%s\t%s\t%s\t%s\t%s\n",
               &gate[i].type,
               &gate[i].number,
               gate[i].accType[0],
@@ -250,5 +251,36 @@ void timeTicker (){
         time.mm = 0;
         time.hh++;
     }
+}
+
+int arrivalMovt(){
+    int iair=0;
+    int checkArr=false;
+    for (iair=0;iair<nair && checkArr==false;iair++){
+        if (strcmp(gate[iair].assignedPlaneReg,"NULLNU")==0 &&
+                strcmp(gate[iair].accType[0],traffic[imain].plane_type)==0 ||
+                strcmp(gate[iair].accType[1],traffic[imain].plane_type)==0 ||
+                strcmp(gate[iair].accType[2],traffic[imain].plane_type)==0){
+            strcpy(gate[iair].assignedPlaneReg,traffic[imain].plane_regNum);
+            checkArr=true;
+            //PATHFINDER
+        } else if (iair==nair-1){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int departureMovt(){
+    int iair=0;
+    for (iair=0;iair<nair;iair++){
+        if(strcmp(gate[iair].assignedPlaneReg,traffic[imain].plane_regNum)==0){
+            strcpy(gate[iair].assignedPlaneReg,"NULLNU");
+            //PATHFINDER
+        } else if (iair==nair){
+            return 1;
+        }
+    }
+    return 0;
 }
 

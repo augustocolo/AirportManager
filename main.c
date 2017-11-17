@@ -6,6 +6,8 @@
 #define true 1
 #define false 0
 #define MAXLENGTHOFARRAY 2500
+#define MAXPLANESIZE (3+1)
+
 
 int imain=0;
 
@@ -28,6 +30,7 @@ typedef struct nI{
     int y;
     char adjlist [4] [2 + 1];
 }nodesInfo;
+char nodeEnterBasedOnDim[MAXPLANESIZE][2 + 1]; //THIS IS SOME SORT OF HASHMAP
 nodesInfo node[MAXLENGTHOFARRAY];
 int importAirportFile(char*);
 
@@ -35,7 +38,8 @@ int importAirportFile(char*);
 int npldb=0;
 typedef struct pDb{
     char model [4 + 1];
-    char type [2 + 1];
+    char type;
+    int dim;
 }planeDB;
 planeDB plane[MAXLENGTHOFARRAY];
 int importPlaneDatabase ();
@@ -54,7 +58,8 @@ typedef struct tDb{
     char event_action;
     char plane_regNum[6 + 1];
     char plane_model[4 + 1];
-    char plane_type[2 + 1];
+    char plane_type;
+    int plane_dim;
     int plane_alreadyBeen;
     char plane_currentPosition[2 + 1];
     char plane_path[MAXLENGTHOFARRAY][2 + 1];
@@ -63,6 +68,7 @@ typedef struct tDb{
 }trafficDatabase;
 trafficDatabase traffic[MAXLENGTHOFARRAY];
 int importTrafficDatabase (char *);
+int assignOvernightPlanes ();
 
 //Time Variables&Functions
 int calcMonoTime(int, int, int);
@@ -101,6 +107,7 @@ int main() {
     }
     printf("Done importing, now let's start!\n");
     system("cls"); //is this working? IDK
+    //ASSIGN OVERNIGHT PLANES
     while (hh!=24){
         timeTicker();
         for (imain=0;imain<ntra;imain++){
@@ -165,7 +172,8 @@ int importTrafficDatabase(char name [64]){
         }
         for (j=0;j<npldb && planefound==false;j++){
             if (strcmp(traffic[i].plane_model,plane[j].model)==0){
-                strcpy(traffic[i].plane_type,plane[j].type);
+                traffic[i].plane_type = plane[j].type;
+                traffic[i].plane_dim = plane[j].dim;
                 planefound=true;
             } else if (j==npldb-1){
                 printf("error while comparing traffic database with plane database: model %s not found\n", traffic[i].plane_model);
@@ -191,11 +199,12 @@ int importPlaneDatabase (){
     if((fp_planedatabase=fopen("PlaneDB.dat","r"))==NULL){
         return 1;
     }
-    fscanf(fp_planedatabase, "%d\t\n", &npldb);
+    fscanf(fp_planedatabase, "%d\t\t\n", &npldb);
     for (i=0;i<npldb;i++){
-        fscanf(fp_planedatabase,"%s\t%s\n",
+        fscanf(fp_planedatabase,"%s\t%c\t%n\n",
         plane[i].model,
-        plane[i].type);
+        &plane[i].type,
+        &plane[i].dim);
     }
     fclose(fp_planedatabase);
 }
@@ -238,6 +247,9 @@ int importAirportFile(char name [64]) {
                node[i].adjlist[2],
                node[i].adjlist[3]);
     }
+    for (i=1;i<=MAXPLANESIZE;i++){
+        fscanf(fp_airportinfo,"%s\t",nodeEnterBasedOnDim[i]);
+    }
     fclose(fp_airportinfo);
     return 0;
 }
@@ -259,7 +271,7 @@ int arrivalMovt(){
     int checkArr=false;
     for (iair=0;iair<nair && checkArr==false;iair++){
         if (strcmp(gate[iair].assignedPlaneReg,"NULLNU")==0 &&
-                strcmp(gate[iair].accType[0],traffic[imain].plane_type)==0 ||
+                strcmp(gate[iair].accType[0],traffic[imain].plane_type)==0 || //CHECK THIS CODE!!!
                 strcmp(gate[iair].accType[1],traffic[imain].plane_type)==0 ||
                 strcmp(gate[iair].accType[2],traffic[imain].plane_type)==0){
             strcpy(gate[iair].assignedPlaneReg,traffic[imain].plane_regNum);
@@ -296,6 +308,23 @@ int taxiMovt(){
 }
 
 int enterExitNodeSelector(){
-    char startnode[2];
+    char startnode[2 + 1];
+    char endnode[2 + 1];
+    int i;
+    switch (traffic[imain].event_action) {
+        case 'A':
+            strcpy(startnode, nodeEnterBasedOnDim[traffic[imain].plane_dim]);
+            for (i=0; i<)
+            strcpy(endnode, traffic[imain].)
+            //endnode: enternode of selected gate.
+            break;
+        case 'D':
+            //startnode: exitnode of selected gate
+            //endnode: standard rwy
+            break;
+        default:
+            printf("ERROR WHILE SELECTING START AND END NODES");
+            return 1;
+    }
 }
 
